@@ -30,7 +30,6 @@ public class ContentController {
 
     public List<NetflixDto> getKeywords(@RequestParam("q") String q) {
 
-
         return contentService.getNetflixContentsBySearch(q);
     }
 

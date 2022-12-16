@@ -6,6 +6,7 @@ import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.User.dto.ProfileImgDto;
+
 import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import com.mysite.nexfilx.User.dto.UserDto;
 import com.mysite.nexfilx.User.dto.UserProfileDto;
@@ -50,6 +51,7 @@ public class UserController {
 
 //        profileNameService.setProfileName(user, profileNameDto , profileImg);
 
+
         return "회원가입 완료";
     }
 
@@ -90,6 +92,7 @@ public class UserController {
         profileNameService.setProfileName(user, profileNameDto, profileImg);
 
     }
+
 
 
     @GetMapping("/getProfile")
