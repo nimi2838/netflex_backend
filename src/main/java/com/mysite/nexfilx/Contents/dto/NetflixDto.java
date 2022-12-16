@@ -46,6 +46,8 @@ public class NetflixDto {
 
     private String mainStory;
 
+    private String videoLink;
+
     private boolean likeStatus;
 
 
@@ -71,6 +73,8 @@ public class NetflixDto {
         detailImg = netflixContents.getDetailImg();
         detailTextImg = netflixContents.getDetailTextImg();
         mainStory = netflixContents.getMainStory();
+        videoLink = netflixContents.getVideoLink();
+
         likeStatus=this.likeStatus;
     }
 

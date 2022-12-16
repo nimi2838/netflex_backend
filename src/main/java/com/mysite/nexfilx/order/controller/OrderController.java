@@ -24,6 +24,7 @@ public class OrderController {
 
     @PostMapping("order")
     public String setOrder(@RequestBody Payorder payorder) {
+        System.out.println("orderDate : " + payorder.getOrderDate());
         orderService.setOrder(payorder);
         userService.setOrder(payorder);
         return "payorder";

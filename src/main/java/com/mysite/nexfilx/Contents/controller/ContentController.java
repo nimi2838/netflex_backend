@@ -27,6 +27,7 @@ public class ContentController {
     }
 
     @GetMapping("/search")
+
     public List<NetflixDto> getKeywords(@RequestParam("q") String q) {
 
         return contentService.getNetflixContentsBySearch(q);

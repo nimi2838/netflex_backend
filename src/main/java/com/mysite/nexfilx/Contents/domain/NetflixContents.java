@@ -44,6 +44,8 @@ public class NetflixContents {
     private String detailImg;
     @Lob
     private String detailTextImg;
+    @Lob
+    private String videoLink;
 
     private String mainStory;
 

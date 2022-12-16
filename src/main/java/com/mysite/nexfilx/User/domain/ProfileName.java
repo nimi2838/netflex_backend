@@ -22,10 +22,13 @@ public class ProfileName {
 
     private String nickname;
 
+    private String img;
+
     public ProfileName(ProfileName profileName) {
         id = profileName.getId();
         user = profileName.getUser();
         nickname = profileName.getNickname();
+        img = profileName.getImg();
 
     }
 

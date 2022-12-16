@@ -2,8 +2,11 @@ package com.mysite.nexfilx.User.controller;
 
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
 import com.mysite.nexfilx.Contents.dto.NetflixDto;
+import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
+import com.mysite.nexfilx.User.dto.ProfileImgDto;
+
 import com.mysite.nexfilx.User.dto.ProfileNameDto;
 import com.mysite.nexfilx.User.dto.UserDto;
 import com.mysite.nexfilx.User.dto.UserProfileDto;
@@ -11,6 +14,7 @@ import com.mysite.nexfilx.User.service.ProfileNameService;
 import com.mysite.nexfilx.User.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +43,13 @@ public class UserController {
 
 
         userService.join(user);
+
+//        User user1 = userService.findId(user.getUseremail());
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
+
+        profileNameService.setNickName(user, user.getUseremail(), profileImg);
+
+//        profileNameService.setProfileName(user, profileNameDto , profileImg);
 
 
         return "회원가입 완료";
@@ -71,32 +82,18 @@ public class UserController {
 
 
     @PostMapping("/profile")
-    public void setUserName(@RequestBody ProfileName profileName, @RequestParam("userId") String userId){
-
-        System.out.println(userId);
+    public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
+        ProfileImg profileImg = profileNameService.findById(String.valueOf(1));
 
-        profileNameService.setProfileName(user, profileName);
+        System.out.println("profileName" + profileNameDto.getNickname());
+
+        profileNameService.setProfileName(user, profileNameDto, profileImg);
 
     }
 
 
-
-
-
-//    @GetMapping("/getProfile")
-//    public User getUserName(@RequestParam String useremail){
-//        System.out.print("아이디" + useremail);
-//
-//        return userService.getProfile(useremail);
-//
-//    }
-
-//    @GetMapping("/getProfile")
-//    public List<ProfileName> getNetflixContents() {
-//        return profileNameService.getProfile();
-//    }
 
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam("useremail") String userId) {
@@ -105,6 +102,39 @@ public class UserController {
 
         return profileNameService.getProfile(user);
     }
+
+    @PatchMapping("updateprofile")
+    public void updateProfile(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+        User user = userService.findId(userId);
+
+        profileNameService.updateProfile(user, profileNameDto);
+    }
+
+    @PostMapping("deleteprofile")
+    public void deleteProfile(@RequestBody ProfileName profileName) {
+        profileNameService.deleteProfile(profileName);
+    }
+
+
+    @GetMapping("getprofileImg")
+    public List<ProfileImg> getProfileImg() {
+        return profileNameService.getImgAll();
+    }
+
+    @PostMapping("userSetProfileImg")
+    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+        User user = userService.findId(userId);
+        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
+
+//        System.out.println("Profile"+ profileNameDto);
+
+        profileNameService.setProfileImg(user, profileImg, profileNameDto);
+    }
+
+//    @PostMapping("findProfileImg")
+//    public void findProfileImg(@RequestBody ProfileImgDto profileImgDto) {
+//        profileNameService.findByImg(profileImgDto.getId());
+//    }
 
 
 

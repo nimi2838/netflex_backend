@@ -18,9 +18,11 @@ public class ProfileNameDto {
 
 
     private String nickname;
+    private String img;
 
     public ProfileNameDto(ProfileName profileName) {
         this.id = profileName.getId();
         this.nickname = profileName.getNickname();
+        this.img = profileName.getImg();
     }
 }

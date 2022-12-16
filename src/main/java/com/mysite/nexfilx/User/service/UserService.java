@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.User.service;
 
 import com.mysite.nexfilx.User.dao.UserRepository;
+import com.mysite.nexfilx.User.domain.ProfileImg;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import com.mysite.nexfilx.User.dto.UserDto;
@@ -10,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +22,8 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+
+    private final ProfileNameService profileNameService;
 
     public User join(User user) {
 
@@ -32,6 +37,7 @@ public class UserService {
 
 
         userRepository.save(user);
+
         return user;
 
     }
@@ -53,17 +59,6 @@ public class UserService {
         Optional<User> opUser = userRepository.findByUseremail(payorder.getUseremail());
         if(opUser.isPresent()) {
             User orderUser = opUser.get();
-
-//            if (orderUser.getAuth().equals("0")) {
-//                orderUser.setAuth(Boolean.valueOf("1"));
-//            }
-//            else {
-//                orderUser.setAuth(Boolean.valueOf("0"));
-//            }
-
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   // yyyy-MM-dd HH:mm:ss
-            System.out.printf(formatter.format("Date : "+payorder.getOrderDate()));
-//            Date nowDate = formatter.format(payorder.getOrderDate());
 
             orderUser.setLastPaymentDate(payorder.getOrderDate());
             userRepository.save(orderUser);

@@ -97,6 +97,7 @@ public class ContentService {
                         .date(contents.getDate())
                         .contentId(contents.getContentId())
                         .rankingImg(contents.getRankingImg())
+                        .videoLink(contents.getVideoLink())
 
                         .build();
 
