@@ -1,5 +1,6 @@
 package com.mysite.nexfilx.category.domain;
 
+import com.mysite.nexfilx.Contents.domain.NetflixContents;
 import lombok.*;
 
 import javax.persistence.*;

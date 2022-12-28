@@ -39,6 +39,10 @@ public class OrderService {
 //        }
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");   // yyyy-MM-dd HH:mm:ss
+<<<<<<< HEAD
+=======
+
+>>>>>>> 03da3c737a3760947dad5d4eea6d20a607a22188
 //        System.out.printf("Date" + formatter.format(nowDate));
 
         String format = formatter.format(nowDate)+"-000-" + num;

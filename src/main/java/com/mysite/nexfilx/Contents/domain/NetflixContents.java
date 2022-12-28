@@ -14,6 +14,7 @@ import java.util.List;
 public class NetflixContents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "netflixContents")
     private Long id;
 
     @Column

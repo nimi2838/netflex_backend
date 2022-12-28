@@ -39,6 +39,7 @@ dependencies {
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
 	//----
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
 	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
 
@@ -48,6 +49,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+//	compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
+//	runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+//	runtime group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
 }
 
 tasks.named('test') {

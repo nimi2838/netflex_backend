@@ -23,7 +23,6 @@ public class UserProfileDto {
 
     private String password;
 
-    private Boolean auth;
 
     private Date lastPaymentDate;
 
@@ -33,7 +32,6 @@ public class UserProfileDto {
         this.id = user.getId();
         this.useremail = user.getUseremail();
         this.password = user.getPassword();
-        this.auth = user.getAuth();
         this.lastPaymentDate = user.getLastPaymentDate();
         profileNameList = user.getProfileNameList()
                 .stream()
