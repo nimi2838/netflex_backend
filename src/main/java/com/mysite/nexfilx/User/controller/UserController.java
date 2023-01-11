@@ -95,10 +95,13 @@ public class UserController {
     }
 
 
+
     @PostMapping("/profile")
     public void setUserName(@RequestBody ProfileNameDto profileNameDto, @RequestParam("useremail") String userId){
 
         User user = userService.findId(userId);
+
+
         ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 
         profileNameService.setProfileName(user, profileNameDto, profileImg);
@@ -135,12 +138,16 @@ public class UserController {
 
 //    @PostMapping("userSetProfileImg")
 //    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+
 //        User user = userService.findId(userId);
+
 //        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 //
 ////        System.out.println("Profile"+ profileNameDto);
 //
-//        profileNameService.setProfileImg(user, profileImg, profileNameDto);
+
+//        profileNameService.setProfileImg(testUser1, profileImg, profileNameDto);
+
 //    }
 
 //    @PostMapping("findProfileImg")

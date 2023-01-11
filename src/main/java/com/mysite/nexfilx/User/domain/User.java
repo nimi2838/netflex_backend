@@ -31,7 +31,6 @@ public class User {
 
     private String roles;
 
-    private String roles;
 
     @Column
     private Date lastPaymentDate;

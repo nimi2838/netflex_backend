@@ -2,6 +2,7 @@ package com.mysite.nexfilx.likelist.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,13 +24,14 @@ public class LikeList {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private ProfileName profileName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private NetflixContents netflixContents;
 
-    public LikeList(User user, NetflixContents netflixContents){
-        this.user = user;
+
+    public LikeList(ProfileName profileName, NetflixContents netflixContents){
+        this.profileName = profileName;
         this.netflixContents = netflixContents;
     }
 }

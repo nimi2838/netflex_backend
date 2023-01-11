@@ -25,7 +25,7 @@ public class LikeListRepositoryImpl implements LikeListRepositoryCustom{
                         .selectFrom(netflixContents)
                         .innerJoin(likeList)
                         .on(likeList.netflixContents.id.eq(netflixContents.id))
-                        .where(likeList.user.id.eq(checkid))
+                        .where(likeList.profileName.id.eq(checkid))
                         .fetch();
         return list;
     }

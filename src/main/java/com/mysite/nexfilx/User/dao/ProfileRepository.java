@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProfileRepository extends JpaRepository<ProfileName, Long> {
-
+    ProfileName findByUserId(Long id);
 
 }
