@@ -45,13 +45,6 @@ public class UserService {
             User orderUser = opUser.get();
 
 
-//            if (orderUser.getAuth().equals("0")) {
-//                orderUser.setAuth(Boolean.valueOf("1"));
-//            }
-//            else {
-//                orderUser.setAuth(Boolean.valueOf("0"));
-//            }
-
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   // yyyy-MM-dd HH:mm:ss
 
 //            Date nowDate = formatter.format(payorder.getOrderDate());

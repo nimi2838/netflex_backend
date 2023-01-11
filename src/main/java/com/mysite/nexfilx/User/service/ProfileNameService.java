@@ -21,6 +21,7 @@ public class ProfileNameService {
     private final ProfileRepository profileRepository;
     private final ImgRepository imgRepository;
 
+    //   프로필 초기 등록
     public void setProfileName(User user , ProfileNameDto profileNameDto, ProfileImg profileImg) {
 
         ProfileName profileName2 = ProfileName.builder()
@@ -36,14 +37,15 @@ public class ProfileNameService {
 
 
 
-
+    //    유저 별 프로필 전체 조회
     public UserProfileDto getProfile(User user) {
 //        return profileRepository.findById(userId);
         UserProfileDto userProfileDto = new UserProfileDto(user);
         return userProfileDto;
     }
 
-    public void updateProfile(User user, ProfileNameDto profileNameDto) {
+    //    프로필 수정
+    public void updateProfile(User user, ProfileNameDto profileNameDto, ProfileImg profileImg ) {
 //        profileRepository.delete(ProfileName.builder()
 //                        .id(profileName.getId())
 //                .build());
@@ -54,13 +56,14 @@ public class ProfileNameService {
             profileRepository.save(ProfileName.builder()
                     .id(profileName.getId())
                     .user(user)
-                    .img(profileName.getImg())
+                    .img(profileImg.getImageUrl())
                     .nickname(profileNameDto.getNickname())
                     .build());
         }
 
     }
 
+    //    프로필 삭제
     public void deleteProfile(ProfileName profileName) {
         profileRepository.delete(ProfileName.builder()
                 .id(profileName.getId())
@@ -68,6 +71,7 @@ public class ProfileNameService {
     }
 
 
+    //   프로필 이미지 전체 조회
     public List<ProfileImg> getImgAll() {
         return imgRepository.findAll();
     }
@@ -77,23 +81,24 @@ public class ProfileNameService {
 
     }
 
-    public void setProfileImg(User user, ProfileImg profileImg, ProfileNameDto profileNameDto) {
+//    public void setProfileImg(User user, ProfileImg profileImg, ProfileNameDto profileNameDto) {
+//
+//        Optional<ProfileName> profileNameId = profileRepository.findById(profileNameDto.getId());
+//        if (profileNameId.isPresent()) {
+//            ProfileName getprofileName = profileNameId.get();
+//
+//            ProfileName profileName = ProfileName.builder()
+//                    .id(getprofileName.getId())
+//                    .user(user)
+//                    .nickname(getprofileName.getNickname())
+//                    .img(profileImg.getImageUrl())
+//                    .build();
+//
+//            profileRepository.save(profileName);
+//        }
+//    }
 
-        Optional<ProfileName> profileNameId = profileRepository.findById(profileNameDto.getId());
-        if (profileNameId.isPresent()) {
-            ProfileName getprofileName = profileNameId.get();
-
-            ProfileName profileName = ProfileName.builder()
-                    .id(getprofileName.getId())
-                    .user(user)
-                    .nickname(getprofileName.getNickname())
-                    .img(profileImg.getImageUrl())
-                    .build();
-
-            profileRepository.save(profileName);
-        }
-    }
-
+    //    회원가입 시 첫 프로필 이름 아이디로 입력되게 함
     public void setNickName(User user,String useremail, ProfileImg profileImg) {
 
 
