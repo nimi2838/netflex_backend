@@ -23,7 +23,7 @@ public class NetflixDetailDto {
 
     public NetflixDetailDto(NetflixContentDetails netflixContentDetails) {
         id = netflixContentDetails.getId();
-        detailEpisode = netflixContentDetails.getDetailepisode();
+        detailEpisode = netflixContentDetails.getDetailEpisode();
         playtime = netflixContentDetails.getPlaytime();
         subStory = netflixContentDetails.getSubStory();
         subImg = netflixContentDetails.getSubImg();

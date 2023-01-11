@@ -1,6 +1,7 @@
 package com.mysite.nexfilx.category.controller;
 
 import com.mysite.nexfilx.Contents.domain.NetflixContents;
+import com.mysite.nexfilx.Contents.dto.NetflixDto;
 import com.mysite.nexfilx.category.domain.Category;
 import com.mysite.nexfilx.category.repository.CategoryRepository;
 import com.mysite.nexfilx.category.service.CategoryService;

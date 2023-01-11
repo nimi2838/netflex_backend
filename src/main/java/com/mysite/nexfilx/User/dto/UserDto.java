@@ -3,10 +3,8 @@ package com.mysite.nexfilx.User.dto;
 import com.mysite.nexfilx.Contents.dto.NetflixDetailDto;
 import com.mysite.nexfilx.User.domain.ProfileName;
 import com.mysite.nexfilx.User.domain.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,11 +17,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class UserDto {
-    private String useremail;
-    private String  nowdate;
-    private String lastPaymentDate;
 
+    private String useremail;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date nowdate;
+    private Date lastPaymentDate;
 
 
 }

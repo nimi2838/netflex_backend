@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface LikeListRepository extends JpaRepository<LikeList,Long>, LikeListRepositoryCustom {
-    Optional<LikeList> findByUserIdAndNetflixContentsId(Long userid, Long netflixcontentsid);
+    Optional<LikeList> findByProfileNameIdAndNetflixContentsId(Long userid, Long netflixcontentsid);
     List<LikeList> findByUserId(Long Id);
 }

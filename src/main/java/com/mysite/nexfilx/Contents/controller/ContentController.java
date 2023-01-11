@@ -14,7 +14,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin("*")
 public class ContentController {
     @Autowired
     private final ContentService contentService;

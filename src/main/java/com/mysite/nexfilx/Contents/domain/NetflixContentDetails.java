@@ -22,7 +22,7 @@ public class NetflixContentDetails {
     @JsonIgnore
     private NetflixContents netflixContents;
 
-    private int detailepisode;
+    private int detailEpisode;
 
     @Column
     private int playtime;
