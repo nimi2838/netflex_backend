@@ -24,14 +24,14 @@ public class LikeList {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private ProfileName profileName;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private NetflixContents netflixContents;
 
 
-    public LikeList(ProfileName profileName, NetflixContents netflixContents){
-        this.profileName = profileName;
+    public LikeList(User user, NetflixContents netflixContents){
+        this.user = user;
         this.netflixContents = netflixContents;
     }
 }
