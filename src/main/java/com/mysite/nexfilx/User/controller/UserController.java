@@ -104,7 +104,10 @@ public class UserController {
 
         ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 
+
+
         profileNameService.setProfileName(user, profileNameDto, profileImg);
+
 
     }
 
@@ -138,15 +141,23 @@ public class UserController {
 
 //    @PostMapping("userSetProfileImg")
 //    public void userSerProfileImg(@RequestParam("useremail") String userId, @RequestBody ProfileNameDto profileNameDto) {
+<<<<<<< HEAD
 
 //        User user = userService.findId(userId);
 
+=======
+//        User user = userService.findId(userId);
+>>>>>>> master
 //        ProfileImg profileImg = profileNameService.findById(profileNameDto.getImg());
 //
 ////        System.out.println("Profile"+ profileNameDto);
 //
+<<<<<<< HEAD
 
 //        profileNameService.setProfileImg(testUser1, profileImg, profileNameDto);
+=======
+//        profileNameService.setProfileImg(user, profileImg, profileNameDto);
+>>>>>>> master
 
 //    }
 

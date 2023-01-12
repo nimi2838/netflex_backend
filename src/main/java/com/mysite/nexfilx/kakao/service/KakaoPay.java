@@ -35,7 +35,7 @@ public class KakaoPay {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "KakaoAK " + "839e73298de0d52ee90a0bfc0b9e736b");
+        headers.add("Authorization", "KakaoAK " + "bcbc527b40a4074841e8ef3f491cf2e6");
         headers.add("Accept",   MediaType.APPLICATION_JSON_VALUE);
         headers.add("Content-Type", org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 
@@ -44,10 +44,11 @@ public class KakaoPay {
         params.add("cid", "TC0ONETIME"); // 가맹정 코드 (test는 카카오에서 제공하는 샘플 코드 사용)
         params.add("partner_order_id", userDto.getNowdate()+"test"); // 주문 번호
         params.add("partner_user_id", userDto.getUseremail()); // 주문자 아이디
-        params.add("item_name", "넷플릭스 스탠다드"+userDto.getUseremail()); // 상품 이름
+        params.add("item_name", "넷플릭스 스탠다드"); // 상품 이름
         params.add("quantity", "1"); // 상품 수량
         params.add("total_amount", "13500"); // 결제 금액
         params.add("tax_free_amount", "0");
+<<<<<<< HEAD
 
         params.add("approval_url", "http://beedue.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
         params.add("cancel_url", "http://beedue.site:3000/payinfo"); // 결제 취소 시 이동 페이지
@@ -55,6 +56,15 @@ public class KakaoPay {
 //        params.add("approval_url", "http://sskyy.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
 //        params.add("cancel_url", "http://sskyy.site:3000/payinfo"); // 결제 취소 시 이동 페이지
 //        params.add("fail_url", "http://sskyy.site:3000/payinfo");
+=======
+//        params.add("approval_url", "http://beedue.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
+//        params.add("cancel_url", "http://beedue.site:3000/payinfo"); // 결제 취소 시 이동 페이지
+//        params.add("fail_url", "http://beedue.site:3000/payinfo");
+        params.add("approval_url", "http://sskyy.site:3000/choiceprofile"); //결제 완료 시 이동 페이지
+        params.add("cancel_url", "http://sskyy.site:3000/payinfo"); // 결제 취소 시 이동 페이지
+        params.add("fail_url", "http://sskyy.site:3000/payinfo");
+
+>>>>>>> master
 
 
         HttpEntity<MultiValueMap<String,String>> body = new HttpEntity<MultiValueMap<String , String>>(params, headers);
