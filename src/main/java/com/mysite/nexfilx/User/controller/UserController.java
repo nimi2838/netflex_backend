@@ -112,6 +112,7 @@ public class UserController {
     }
 
 
+
     @GetMapping("/getProfile")
     public UserProfileDto getNetflixContents(@RequestParam(value = "useremail", required = false) String userId) {
         User user = userService.findId(userId);

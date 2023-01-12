@@ -76,6 +76,7 @@ public class NetflixDto  {
         detailTextImg = netflixContents.getDetailTextImg();
         mainStory = netflixContents.getMainStory();
         videoLink = netflixContents.getVideoLink();
+
         likeStatus=this.likeStatus;
     }
 
